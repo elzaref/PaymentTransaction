@@ -1,0 +1,117 @@
+﻿@model Model.RequestData
+@using System
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Process","Home",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProcessingCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProcessingCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProcessingCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SystemTraceNr, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SystemTraceNr, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SystemTraceNr, "", new { @class = "text-danger"  })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FunctionCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FunctionCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FunctionCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CardNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CardNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CardNo, "", new { @class = "text-danger"  })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CardHolder , htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CardHolder , new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CardHolder , "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AmountTrxn, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AmountTrxn, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AmountTrxn, "", new { @class = "text-danger"  })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CurrencyCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CurrencyCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CurrencyCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+<div>
+    @Html.ActionLink("Send", "SendRequest")
+</div>
+
+@*<div>
+    @using (Html.BeginForm("SendRequest", "Home", FormMethod.Post))
+    {
+        @Html.LabelFor(model => model.ProcessingCode)
+        @Html.TextBoxFor(model => model.ProcessingCode)
+
+        @Html.LabelFor(model => model.SystemTraceNr)
+        @Html.TextBoxFor(model => model.SystemTraceNr)
+
+        @Html.LabelFor(m => m.FunctionCode)
+        @Html.TextBoxFor(m => m.FunctionCode)
+
+        @Html.LabelFor(m => m.CardNo)
+        @Html.TextBoxFor(m => m.CardNo)
+
+        @Html.LabelFor(m => m.CardHolder)
+        @Html.TextBoxFor(m => m.CardHolder)
+
+        @Html.LabelFor(m => m.AmountTrxn)
+        @Html.TextBoxFor(m => m.AmountTrxn)
+
+        @Html.LabelFor(m => m.CurrencyCode)
+        @Html.TextBoxFor(m => m.CurrencyCode)
+
+        <input type="submit" value="Submit Request" />
+    }
+
+</div>*@
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
